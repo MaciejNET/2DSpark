@@ -5,3 +5,4 @@
 ## Authors:
 - Maciej Deroń
 - Mariusz Ignaciuk
+- Paweł Dostal
