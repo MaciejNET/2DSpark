@@ -4,3 +4,4 @@
 
 ## Authors:
 - Maciej Deroń
+- Mariusz Ignaciuk
