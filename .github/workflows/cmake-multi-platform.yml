@@ -1,4 +1,4 @@
-name: CMake on Windows
+name: CMake Build
 
 on:
   push:
@@ -10,28 +10,27 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Set reusable strings
-        id: strings
-        run: |
-          echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_ENV"
+      - name: Create Build Directory
+        run: mkdir build
 
       - name: Configure CMake
-        run: |
-          cmake -B ${{ steps.strings.outputs.build-output-dir }}
-          -DCMAKE_CXX_COMPILER=g++
-          -DCMAKE_C_COMPILER=gcc
-          -DCMAKE_BUILD_TYPE=Release
-          -S ${{ github.workspace }}
+        run: cmake -B build -S .
+        shell: bash
 
       - name: Build
-        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config Release
+        run: cmake --build build --config Release
+        shell: bash
 
       - name: Test
-        working-directory: ${{ steps.strings.outputs.build-output-dir }}
+        working-directory: build
         run: ctest --build-config Release
+        shell: bash
