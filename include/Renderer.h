@@ -11,7 +11,7 @@ public:
     void RemoveSprite(const GameObject* sprite);
     void Render() const;
 private:
-    std::vector<const GameObject*> _sprites;
+    std::vector<const GameObject*> _objects;
 };
 
 #endif //INC_2DSPARK_RENDERER_H
