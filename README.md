@@ -6,3 +6,4 @@
 - Maciej Deroń
 - Mariusz Ignaciuk
 - Paweł Dostal
+- Julia Dziekańska
