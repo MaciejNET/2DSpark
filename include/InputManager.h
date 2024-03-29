@@ -10,8 +10,8 @@ public:
     bool KeyReleased(int key);
     bool MouseButtonPressed(int button);
     bool MouseButtonReleased(int button);
-    double getMouseX();
-    double getMouseY();
+    double GetMouseX() const;
+    double GetMouseY() const;
 
 private:
     bool _keys[512];

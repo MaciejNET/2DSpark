@@ -52,11 +52,11 @@ bool InputManager::MouseButtonReleased(int button)
 {
 	return !_mouseButtons[button] && _prevMouseButtons[button];
 }
-double InputManager::getMouseX()
+double InputManager::GetMouseX() const
 {
 	return _mouseX;
 }
-double InputManager::getMouseY()
+double InputManager::GetMouseY() const
 {
 	return _mouseY;
 }
