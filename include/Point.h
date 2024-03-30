@@ -4,7 +4,7 @@
 class Point
 {
 public:
-    Point(int x, int y) : _x(x), _y(y) {}
+    Point(float x, float y) : _x(x), _y(y) {}
     float GetX() const;
     float GetY() const;
     void SetX(float x);
