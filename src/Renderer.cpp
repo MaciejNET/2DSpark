@@ -1,11 +1,11 @@
 #include "../include/Renderer.h"
 
-void Renderer::AddSprite(const GameObject *sprite)
+void Renderer::AddObject(const GameObject *sprite)
 {
     _objects.push_back(sprite);
 }
 
-void Renderer::RemoveSprite(const GameObject *sprite)
+void Renderer::RemoveObject(const GameObject *sprite)
 {
     std::remove(_objects.begin(), _objects.end(), sprite);
 }
