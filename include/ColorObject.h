@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <string>
 
 class ColorObject : public GameObject
 {
@@ -13,18 +14,11 @@ public:
 	void SetColor(float r, float g, float b);
 	virtual void Draw() const = 0;
 
-    GLuint GetShaderProgram() const
-    {
-        return _shaderProgram;
-    }
-    GLuint GetVertexShader() const
-    {
-        return _vertexShader;
-    }
-    GLuint GetFragmentShader() const
-    {
-        return _fragmentShader;
-    }
+    GLuint GetShaderProgram() const;
+    GLuint GetVertexShader() const;
+    GLuint GetFragmentShader() const;
+    std::string GetVertexShaderSource() const;
+    std::string GetFragmentShaderSource() const;
 private:
 	float _r;
 	float _g;
@@ -44,17 +38,13 @@ private:
         }
     )";
 
-    std::string _fragmentShaderSource = R"(
-        #version 330 core
-        out vec4 FragColor;
-        uniform float _r;
-        uniform float _g;
-        uniform float _b;
-        void main()
-        {
-            FragColor = vec4(_r, _g, _b, 1.0);
-        }
-    )";
+    std::string _fragmentShaderSource =
+            "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "    FragColor = vec4(" + std::to_string(_r) + ", " + std::to_string(_g) + ", " + std::to_string(_b) + ", 1.0);\n"
+            "}\n";
 
     void CompileShaders();
 };
