@@ -1,8 +1,8 @@
 #ifndef INC_2DSPARK_COLOROBJECT_H
 #define INC_2DSPARK_COLOROBJECT_H
 #include "GameObject.h"
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <string>
 
 class ColorObject : public GameObject
@@ -19,6 +19,9 @@ public:
     GLuint GetFragmentShader() const;
     std::string GetVertexShaderSource() const;
     std::string GetFragmentShaderSource() const;
+    float GetR() const;
+    float GetG() const;
+    float GetB() const;
 private:
 	float _r;
 	float _g;
