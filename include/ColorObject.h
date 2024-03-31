@@ -47,12 +47,12 @@ private:
     std::string _fragmentShaderSource = R"(
         #version 330 core
         out vec4 FragColor;
-        uniform float r;
-        uniform float g;
-        uniform float b;
+        uniform float _r;
+        uniform float _g;
+        uniform float _b;
         void main()
         {
-            FragColor = vec4(r, g, b, 1.0);
+            FragColor = vec4(_r, _g, _b, 1.0);
         }
     )";
 
