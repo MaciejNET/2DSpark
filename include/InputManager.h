@@ -1,5 +1,5 @@
-#ifndef INPUTMANAGER_H
-#define INPUTMANAGER_H
+#ifndef INC_2DSPARK_INPUTMANAGER_H
+#define INC_2DSPARK_INPUTMANAGER_H
 #include <GLFW/glfw3.h>
 
 class InputManager {
@@ -21,4 +21,4 @@ private:
     double _mouseX, _mouseY;
 };
 
-#endif // INPUTMANAGER_H
+#endif // INC_2DSPARK_INPUTMANAGER_H
