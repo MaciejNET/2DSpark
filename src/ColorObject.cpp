@@ -1,16 +1,50 @@
 #include "../include/ColorObject.h"
-#include <iostream>
 
-ColorObject::ColorObject(float r, float g, float b) : _r(r), _g(g), _b(b) {}
-ColorObject::ColorObject() : _r(1.0f), _g(1.0f), _b(1.0f) {}
+ColorObject::ColorObject(float r, float g, float b) : _r(r), _g(g), _b(b)
+{
+    CompileShaders();
+}
+
+ColorObject::ColorObject() : _r(1.0f), _g(1.0f), _b(1.0f)
+{
+    CompileShaders();
+}
+
 void ColorObject::SetColor(float r, float g, float b)
 {
 	_r = r;
 	_g = g;
 	_b = b;
+    CompileShaders();
 }
 
-void ColorObject::CompileShaders() {
+std::string ColorObject::GetVertexShaderSource() const
+{
+    return _vertexShaderSource;
+}
+
+std::string ColorObject::GetFragmentShaderSource() const
+{
+    return _fragmentShaderSource;
+}
+
+GLuint ColorObject::GetShaderProgram() const
+{
+    return _shaderProgram;
+}
+
+GLuint ColorObject::GetVertexShader() const
+{
+    return _vertexShader;
+}
+
+GLuint ColorObject::GetFragmentShader() const
+{
+    return _fragmentShader;
+}
+
+void ColorObject::CompileShaders()
+{
     _vertexShader = glCreateShader(GL_VERTEX_SHADER);
     const char* vertexShaderSource = _vertexShaderSource.c_str();
     glShaderSource(_vertexShader, 1, &vertexShaderSource, NULL);
