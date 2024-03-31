@@ -92,6 +92,16 @@ void Engine::ToggleWindowed()
     glfwSetWindowMonitor(_window, nullptr, 0, 0, _width, _height, mode->refreshRate);
 }
 
+Renderer *Engine::GetRenderer() const
+{
+    return _renderer;
+}
+
+InputManager *Engine::GetInputManager() const
+{
+    return _inputManager;
+}
+
 void Engine::FramebufferSizeCallback(GLFWwindow *window, int width, int height)
 {
     glViewport(0, 0, width, height);

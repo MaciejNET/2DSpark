@@ -6,6 +6,7 @@
 #include <iostream>
 #include "InputManager.h"
 #include "Renderer.h"
+#include <thread>
 
 class Engine {
 public:
@@ -16,6 +17,8 @@ public:
     void SetClearColor(float r, float g, float b, float alpha = 1.0f);
     void ToggleFullscreen();
     void ToggleWindowed();
+    Renderer* GetRenderer() const;
+    InputManager* GetInputManager() const;
     static void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 
 private:

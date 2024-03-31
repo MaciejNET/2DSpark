@@ -14,8 +14,9 @@ if(APPLE)
 endif()
 
 add_executable(2DSpark src/main.cpp src/glad.c
-        src/Point.cpp src/Renderer.cpp "src/InputManager.cpp" "include/InputManager.h"
-        src/Engine.cpp   "include/ColorObject.h" "src/ColorObject.cpp")
+        src/Point.cpp src/Renderer.cpp src/InputManager.cpp
+        src/Engine.cpp src/ColorObject.cpp
+        src/LineObject.cpp)
 
 if(APPLE)
     target_link_libraries(2DSpark ${GLFW_LIBRARY} ${COREFOUNDATION_LIBRARY} ${COREGRAPHICS_LIBRARY} ${IOKIT_LIBRARY} ${COCOA_LIBRARY})

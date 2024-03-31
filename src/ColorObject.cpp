@@ -43,6 +43,21 @@ GLuint ColorObject::GetFragmentShader() const
     return _fragmentShader;
 }
 
+float ColorObject::GetR() const
+{
+    return _r;
+}
+
+float ColorObject::GetG() const
+{
+    return _g;
+}
+
+float ColorObject::GetB() const
+{
+    return _b;
+}
+
 void ColorObject::CompileShaders()
 {
     _vertexShader = glCreateShader(GL_VERTEX_SHADER);
