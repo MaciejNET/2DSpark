@@ -12,6 +12,19 @@ public:
 	virtual ~ColorObject() = default;
 	void SetColor(float r, float g, float b);
 	virtual void Draw() const = 0;
+
+    GLuint GetShaderProgram() const
+    {
+        return _shaderProgram;
+    }
+    GLuint GetVertexShader() const
+    {
+        return _vertexShader;
+    }
+    GLuint GetFragmentShader() const
+    {
+        return _fragmentShader;
+    }
 private:
 	float _r;
 	float _g;
@@ -34,10 +47,12 @@ private:
     std::string _fragmentShaderSource = R"(
         #version 330 core
         out vec4 FragColor;
-        uniform vec3 color;
+        uniform float r;
+        uniform float g;
+        uniform float b;
         void main()
         {
-            FragColor = vec4(color, 1.0);
+            FragColor = vec4(r, g, b, 1.0);
         }
     )";
 
