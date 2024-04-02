@@ -2,7 +2,8 @@
 
 void LineObject::Draw() const
 {
-    float vertices[] = {
+    float vertices[] = 
+    {
             _start.GetX(), _start.GetY(),
             _end.GetX(), _end.GetY()
     };
