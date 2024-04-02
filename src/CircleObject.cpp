@@ -45,7 +45,3 @@ void CircleObject::Draw() const {
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
 }
-float CircleObject::GetRadius() const
-{
-    return _radius;
-}
