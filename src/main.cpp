@@ -6,6 +6,7 @@
 #include "../include/CircleObject.h"
 #include "../include/RectangleObject.h"
 #include "../include/PointObject.h"
+#include "../include/TriangleObject.h"
 
 int main(void)
 {
@@ -14,10 +15,12 @@ int main(void)
     CircleObject circle( Point(0.5f, 0.5f), Point(0.0f, 0.0f), 0.5f, 0.0f, 1.0f, 0.0f);
     RectangleObject rectangle(Point(0.0f, -0.0f), Point(0.5f, 0.5f), 0.0f, 0.0f, 1.0f);
     PointObject point( Point(0.5f, 0.5f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
+    TriangleObject triangle(Point(0.2f, -0.3f), Point(-0.5f, 0.2f), Point(0.5f, 0.2f), 0.0f, 0.0f, 1.0f);
     engine.GetRenderer()->AddObject(&point);
     //engine.GetRenderer()->AddObject(&rectangle);
     //engine.GetRenderer()->AddObject(&circle);
     //engine.GetRenderer()->AddObject(&line);
+    //engine.GetRenderer()->AddObject(&triangle);
     engine.Run();
     exit(EXIT_SUCCESS);
 }
