@@ -6,18 +6,23 @@
 #include "../include/CircleObject.h"
 #include "../include/RectangleObject.h"
 #include "../include/PointObject.h"
+#include "../include/BitmapObject.h"
 
 int main(void)
 {
     Engine engine(800, 600, "Test");
-    LineObject line( Point(0.0f, 0.0f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
-    CircleObject circle( Point(0.5f, 0.5f), Point(0.0f, 0.0f), 0.5f, 0.0f, 1.0f, 0.0f);
+    LineObject line(Point(0.0f, 0.0f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
+    CircleObject circle(Point(0.5f, 0.5f), Point(0.0f, 0.0f), 0.5f, 0.0f, 1.0f, 0.0f);
     RectangleObject rectangle(Point(0.0f, -0.0f), Point(0.5f, 0.5f), 0.0f, 0.0f, 1.0f);
-    PointObject point( Point(0.5f, 0.5f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
+    PointObject point(Point(0.5f, 0.5f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
+    BitmapObject myImage("../../../images/myImage.jpg");
+
+    engine.GetRenderer()->AddObject(&myImage);
     engine.GetRenderer()->AddObject(&point);
-    //engine.GetRenderer()->AddObject(&rectangle);
-    //engine.GetRenderer()->AddObject(&circle);
-    //engine.GetRenderer()->AddObject(&line);
+    engine.GetRenderer()->AddObject(&rectangle);
+    engine.GetRenderer()->AddObject(&circle);
+    engine.GetRenderer()->AddObject(&line);
     engine.Run();
+    glfwTerminate();
     exit(EXIT_SUCCESS);
 }
