@@ -3,10 +3,11 @@
 
 #include <vector>
 #include <string>
-#include <glad/glad.h> // Ensure GLAD is included before any OpenGL headers
+#include <glad/glad.h>
 #include "GameObject.h"
 
-class Renderer {
+class Renderer 
+{
 public:
     Renderer();
     ~Renderer();
@@ -18,7 +19,7 @@ public:
 
 private:
     std::vector<const GameObject*> _objects;
-    GLuint programID;  // ID of the shader program
+    GLuint programID;
 };
 
-#endif //INC_2DSPARK_RENDERER_H
+#endif
