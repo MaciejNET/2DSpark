@@ -9,6 +9,9 @@ Renderer::Renderer()
 #ifdef __unix__
     const char* vertex_shader_path = "../shaders/vertex_shader.glsl";
     const char* fragment_shader_path = "../shaders/fragment_shader.glsl";
+#elif __aarch64__
+    const char* vertex_shader_path = "../shaders/vertex_shader.glsl";
+    const char* fragment_shader_path = "../shaders/fragment_shader.glsl";
 #elif defined(_WIN32) || defined(_WIN64)
     const char* vertex_shader_path = "../../../shaders/vertex_shader.glsl";
     const char* fragment_shader_path = "../../../shaders/fragment_shader.glsl";

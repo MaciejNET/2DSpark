@@ -18,6 +18,8 @@ int main(void)
 
 #ifdef __unix__
     BitmapObject myImage("../images/myImage.jpg");
+#elif __aarch64__
+    BitmapObject myImage("../images/myImage.jpg");
 #elif defined(_WIN32) || defined(_WIN64)
     BitmapObject myImage("../../../images/myImage.jpg");
 #endif
