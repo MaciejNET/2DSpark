@@ -16,8 +16,7 @@ endif()
 add_executable(2DSpark src/main.cpp src/glad.c
         src/Point.cpp src/Renderer.cpp src/InputManager.cpp
         src/Engine.cpp src/ColorObject.cpp
-        src/LineObject.cpp "include/CircleObject.h" "src/CircleObject.cpp" "include/RectangleObject.h" "src/RectangleObject.cpp" "include/PointObject.h" "src/PointObject.cpp")
-	src/TriangleObject.cpp "include/TriangleObject.h"  
+        src/LineObject.cpp "include/CircleObject.h" "src/CircleObject.cpp" "include/RectangleObject.h" "src/RectangleObject.cpp" "include/PointObject.h" "src/PointObject.cpp" "include/stb_image.h" "include/BitmapObject.h" "src/BitmapObject.cpp" 	src/TriangleObject.cpp "include/TriangleObject.h")
 
 if(APPLE)
     target_link_libraries(2DSpark ${GLFW_LIBRARY} ${COREFOUNDATION_LIBRARY} ${COREGRAPHICS_LIBRARY} ${IOKIT_LIBRARY} ${COCOA_LIBRARY})
