@@ -6,9 +6,9 @@ void TriangleObject::Draw() const {
 
     // Wierzchołki trójkąta
     float vertices[num_vertices * 2] = {
-        _x1.GetX(), _y1.GetY(),
-        _x2.GetX(), _y2.GetY(),
-        _x3.GetX(), _y3.GetY()
+        _x1.GetX(), _x1.GetY(),
+        _x2.GetX(), _x2.GetY(),
+        _x3.GetX(), _x3.GetY()
     };
 
     GLuint VAO, VBO;

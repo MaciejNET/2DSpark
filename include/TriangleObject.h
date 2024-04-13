@@ -7,13 +7,13 @@
 class TriangleObject : public ColorObject
 {
 public:
-    TriangleObject(const Point& point1, const Point& point2, const Point& point3) : _point1(point1), _point2(point2), _point3(point3) {};
-    TriangleObject(const Point& point1, const Point& point2, const Point& point3, const float r, const float g, const float b) : _point1(point1), _point2(point2), _point3(point3), ColorObject(r, g, b) {};
+    TriangleObject(const Point& x1, const Point& x2, const Point& x3) : _x1(x1), _x2(x2), _x3(x3) {};
+    TriangleObject(const Point& x1, const Point& x2, const Point& x3, const float r, const float g, const float b) : _x1(x1), _x2(x2), _x3(x3), ColorObject(r, g, b) {};
     void Draw() const override;
 private:
-    Point _point1;
-    Point _point2;
-    Point _point3;
+    Point _x1;
+    Point _x2;
+    Point _x3;
 };
 
 #endif //INC_2DSPARK_TRIANGLEOBJECT_H
