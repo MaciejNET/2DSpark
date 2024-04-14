@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include "GameObject.h"
-#include "../include/stb_image.h"
+#include "stb_image.h"
 
 class BitmapObject : public GameObject 
 {

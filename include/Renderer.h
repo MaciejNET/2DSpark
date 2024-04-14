@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <glad/glad.h>
-#include "GameObject.h"
+#include "Primitives/GameObject.h"
 
 class Renderer 
 {

@@ -2,12 +2,12 @@
 
 #include <cstdlib>
 #include "../include/Engine.h"
-#include "../include/LineObject.h"
-#include "../include/CircleObject.h"
-#include "../include/RectangleObject.h"
-#include "../include/PointObject.h"
-#include "../include/TriangleObject.h"
-#include "../include/BitmapObject.h"
+#include "../include/Primitives/LineObject.h"
+#include "../include/Primitives/CircleObject.h"
+#include "../include/Primitives/RectangleObject.h"
+#include "../include/Primitives/PointObject.h"
+#include "../include/Primitives/TriangleObject.h"
+#include "../include/Primitives/BitmapObject.h"
 
 int main(void)
 {
@@ -26,12 +26,12 @@ int main(void)
     BitmapObject myImage("../../../images/myImage.jpg");
 #endif
     
-    engine.GetRenderer()->AddObject(&myImage);
-    engine.GetRenderer()->AddObject(&point);
+    //engine.GetRenderer()->AddObject(&myImage);
+    //engine.GetRenderer()->AddObject(&point);
     engine.GetRenderer()->AddObject(&rectangle);
-    engine.GetRenderer()->AddObject(&circle);
+    //engine.GetRenderer()->AddObject(&circle);
     engine.GetRenderer()->AddObject(&line);
-    engine.GetRenderer()->AddObject(&triangle);
+    //engine.GetRenderer()->AddObject(&triangle);
   
     engine.Run();
     glfwTerminate();

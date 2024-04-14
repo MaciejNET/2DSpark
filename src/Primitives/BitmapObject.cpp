@@ -1,8 +1,8 @@
-#include "../include/BitmapObject.h"
+#include "../../include/Primitives/BitmapObject.h"
 #include <iostream>
-#include <glad/glad.h>
+#include "glad/glad.h"
 #define STB_IMAGE_IMPLEMENTATION
-#include "../include/stb_image.h"
+#include "stb_image.h"
 
 BitmapObject::BitmapObject(const std::string& imagePath) 
 {

@@ -1,6 +1,6 @@
 #ifndef INC_2DSPARK_INPUTMANAGER_H
 #define INC_2DSPARK_INPUTMANAGER_H
-#include <GLFW/glfw3.h>
+#include "GLFW/glfw3.h"
 
 class InputManager {
 public:

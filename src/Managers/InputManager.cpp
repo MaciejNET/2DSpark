@@ -1,5 +1,8 @@
-#include "../include/InputManager.h"
-#include <GLFW/glfw3.h>
+#include "../../include/Managers/InputManager.h"
+#include "../../include/Events/EventBus.h"
+#include "../../include/Events/KeyPressedEvent.h"
+#include "../../include/Events/MouseMovedEvent.h"
+#include "GLFW/glfw3.h"
 
 InputManager::InputManager() 
 {
@@ -23,6 +26,12 @@ void InputManager::Update(GLFWwindow* window)
 	{
 		_prevKeys[i] = _keys[i];
 		_keys[i] = glfwGetKey(window, i);
+
+        if (KeyPressed(i))
+        {
+            std::shared_ptr<Event> event = std::make_shared<KeyPressedEvent>(i);
+            EventBus::GetInstance()->Publish(event);
+        }
 	}
 	for (int i = 0; i < 8; i++)
 	{
@@ -34,6 +43,9 @@ void InputManager::Update(GLFWwindow* window)
 	glfwGetCursorPos(window, &x, &y);
 	_mouseX = x;
 	_mouseY = y;
+
+    std::shared_ptr<Event> event = std::make_shared<MouseMovedEvent>(_mouseX, _mouseY);
+    EventBus::GetInstance()->Publish(event);
 }
 
 bool InputManager::KeyPressed(int key)

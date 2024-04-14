@@ -1,4 +1,4 @@
-#include "../include/Point.h"
+#include "../../include/Primitives/Point.h"
 
 float Point::GetX() const
 {

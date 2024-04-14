@@ -1,8 +1,8 @@
 #ifndef INC_2DSPARK_COLOROBJECT_H
 #define INC_2DSPARK_COLOROBJECT_H
 #include "GameObject.h"
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
 #include <string>
 
 class ColorObject : public GameObject

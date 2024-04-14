@@ -4,7 +4,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include "InputManager.h"
+#include "Managers/InputManager.h"
 #include "Renderer.h"
 #include <thread>
 
