@@ -1,16 +1,15 @@
-#include "../include/TriangleObject.h"
-#include <cmath>
+#include "../../include/Primitives/RectangleObject.h"
 
-void TriangleObject::Draw() const {
-    const int num_vertices = 3;
-
-    // Wierzchołki trójkąta
-    float vertices[num_vertices * 2] = {
-        _x1.GetX(), _x1.GetY(),
-        _x2.GetX(), _x2.GetY(),
-        _x3.GetX(), _x3.GetY()
-    };
-
+void RectangleObject::Draw() const
+{
+	float vertices[] =
+	{
+		_top.GetX(), _top.GetY(), //gorny lewy naroznik
+		_bottom.GetX(), _top.GetY(), //gorny prawy
+		_bottom.GetX(), _bottom.GetY(), //dolny prawy
+		_top.GetX(), _bottom.GetY(), //dolny lewy
+        _top.GetX(), _top.GetY() //zamkniecie
+	};
     GLuint VAO, VBO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -27,7 +26,7 @@ void TriangleObject::Draw() const {
     glUniform4f(glGetUniformLocation(GetShaderProgram(), "color"), GetR(), GetG(), GetB(), 1.0f);
 
     glBindVertexArray(VAO);
-    glDrawArrays(GL_LINE_LOOP, 0, num_vertices);
+    glDrawArrays(GL_LINE_LOOP, 0, 5);
 
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);

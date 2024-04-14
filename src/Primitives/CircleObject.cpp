@@ -1,4 +1,4 @@
-#include "../include/CircleObject.h"
+#include "../../include/Primitives/CircleObject.h"
 #include <cmath>
 
 void CircleObject::Draw() const {

@@ -1,4 +1,5 @@
 #include "../include/Engine.h"
+#include "../include/Events/EventBus.h"
 
 Engine::Engine(int width, int height, const char *title) : _width(width), _height(height), _title(title)
 {
@@ -59,6 +60,7 @@ void Engine::Run()
         ClearScreen();
 
         _renderer->Render();
+        EventBus::GetInstance()->DispatchEvents();
 
         glfwSwapBuffers(_window);
         glfwPollEvents();

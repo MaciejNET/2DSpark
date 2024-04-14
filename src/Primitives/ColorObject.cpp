@@ -1,4 +1,4 @@
-#include "../include/ColorObject.h"
+#include "../../include/Primitives/ColorObject.h"
 
 ColorObject::ColorObject(float r, float g, float b) : _r(r), _g(g), _b(b)
 {

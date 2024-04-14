@@ -1,4 +1,4 @@
-#include "../include/PointObject.h"
+#include "../../include/Primitives/PointObject.h"
 
 void PointObject::Draw() const {
     float vertex[] = 

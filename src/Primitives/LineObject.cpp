@@ -1,4 +1,4 @@
-#include "../include/LineObject.h"
+#include "../../include/Primitives/LineObject.h"
 
 void LineObject::Draw() const
 {
