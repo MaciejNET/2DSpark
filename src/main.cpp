@@ -11,12 +11,12 @@
 
 int main(void)
 {
-    Engine engine(800, 600, "Test");
-    LineObject line(Point(0.0f, 0.0f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
-    CircleObject circle(Point(0.5f, 0.5f), Point(0.0f, 0.0f), 0.5f, 0.0f, 1.0f, 0.0f);
-    RectangleObject rectangle(Point(0.0f, -0.0f), Point(0.5f, 0.5f), 0.0f, 0.0f, 1.0f);
-    PointObject point(Point(0.5f, 0.5f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
-    TriangleObject triangle(Point(0.0f, 0.0f), Point(0.5f, 0.5f), Point(0.5f, 0.0f), 1.0f, 1.0f, 1.0f);
+    Engine engine(800, 600, "Test", 60.0f);
+    LineObject line(Point(0.0f, 0.0f), Point(50.0f, 50.0f), 1.0f, 0.0f, 0.0f);
+    CircleObject circle(Point(120.0f, 120.5f), Point(10.0f, 20.0f), 0.5f, 0.0f, 1.0f, 0.0f);
+    RectangleObject rectangle(Point(200.0f, 30.0f), Point(10.5f, 300.5f), 0.0f, 0.0f, 1.0f);
+    PointObject point(Point(10.5f, 10.5f), Point(0.5f, 0.5f), 1.0f, 0.0f, 0.0f);
+    TriangleObject triangle(Point(40.0f, 10.0f), Point(60.5f, 100.5f), Point(200.5f, 600.0f), 1.0f, 1.0f, 1.0f);
 
 #ifdef __unix__
     BitmapObject myImage("../images/myImage.jpg");
@@ -26,12 +26,12 @@ int main(void)
     BitmapObject myImage("../../../images/myImage.jpg");
 #endif
     
-    //engine.GetRenderer()->AddObject(&myImage);
-    //engine.GetRenderer()->AddObject(&point);
+    engine.GetRenderer()->AddObject(&myImage);
+    engine.GetRenderer()->AddObject(&point);
     engine.GetRenderer()->AddObject(&rectangle);
-    //engine.GetRenderer()->AddObject(&circle);
+    engine.GetRenderer()->AddObject(&circle);
     engine.GetRenderer()->AddObject(&line);
-    //engine.GetRenderer()->AddObject(&triangle);
+    engine.GetRenderer()->AddObject(&triangle);
   
     engine.Run();
     glfwTerminate();

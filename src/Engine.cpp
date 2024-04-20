@@ -6,6 +6,11 @@ Engine::Engine(int width, int height, const char *title) : _width(width), _heigh
     Init();
 }
 
+Engine::Engine(int width, int height, const char *title, float targetFps) : _width(width), _height(height), _title(title), _targetFps(targetFps)
+{
+    Init();
+}
+
 Engine::~Engine()
 {
     CleanUp();
@@ -42,11 +47,25 @@ void Engine::Init()
 
 void Engine::Run()
 {
+    float frameTimeTarget = 0.0f;
+    float nextFrameTime = 0.0f;
+
     while (!glfwWindowShouldClose(_window))
     {
         auto currentTime = (float)glfwGetTime();
+
+        if (_targetFps > 0.0f)
+        {
+            frameTimeTarget = 1.0f / _targetFps;
+            while (currentTime < nextFrameTime)
+            {
+                currentTime = (float)glfwGetTime();
+            }
+        }
+
         _deltaTime = currentTime - _lastFrame;
         _lastFrame = currentTime;
+        nextFrameTime = currentTime + frameTimeTarget;
 
         _fps = 1.0f / _deltaTime;
 
@@ -102,6 +121,11 @@ Renderer *Engine::GetRenderer() const
 InputManager *Engine::GetInputManager() const
 {
     return _inputManager;
+}
+
+void Engine::SetTargetFps(float targetFps)
+{
+    _targetFps = targetFps;
 }
 
 void Engine::FramebufferSizeCallback(GLFWwindow *window, int width, int height)

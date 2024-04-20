@@ -11,6 +11,7 @@
 class Engine {
 public:
     Engine(int width, int height, const char* title);
+    Engine(int width, int height, const char* title, float targetFps);
     ~Engine();
     void Run();
     void ClearScreen();
@@ -19,6 +20,7 @@ public:
     void ToggleWindowed();
     Renderer* GetRenderer() const;
     InputManager* GetInputManager() const;
+    void SetTargetFps(float targetFps);
     static void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 
 private:
@@ -35,6 +37,7 @@ private:
     float _lastFrame = 0.0f;
     float _fps;
     float _clearColor[4];
+    float _targetFps = 0.0f;
 };
 
 #endif //INC_2DSPARK_ENGINE_H
