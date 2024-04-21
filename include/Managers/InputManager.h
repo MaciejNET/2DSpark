@@ -11,8 +11,8 @@ public:
     void Update(GLFWwindow* window);
     bool KeyPressed(int key);
     bool KeyReleased(int key);
-    bool KeyHeld(int key); // Dodana metoda sprawdzaj¹ca, czy klawisz jest przytrzymany
-    bool KeyTriggered(int key); // Dodana metoda sprawdzaj¹ca, czy klawisz zosta³ wciœniêty i natychmiast puszczony
+    bool KeyHeld(int key);
+    bool KeyTriggered(int key);
     bool MouseButtonPressed(int button);
     bool MouseButtonReleased(int button);
     double GetMouseX() const;
