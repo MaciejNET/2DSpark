@@ -1,6 +1,9 @@
 #ifndef INC_2DSPARK_INPUTMANAGER_H
 #define INC_2DSPARK_INPUTMANAGER_H
-#include "GLFW/glfw3.h"
+
+#include "SPARK/spark.h"
+#include <chrono>
+#include <iostream>
 
 class InputManager {
 public:
@@ -8,6 +11,8 @@ public:
     void Update(GLFWwindow* window);
     bool KeyPressed(int key);
     bool KeyReleased(int key);
+    bool KeyHeld(int key); // Dodana metoda sprawdzaj¹ca, czy klawisz jest przytrzymany
+    bool KeyTriggered(int key); // Dodana metoda sprawdzaj¹ca, czy klawisz zosta³ wciœniêty i natychmiast puszczony
     bool MouseButtonPressed(int button);
     bool MouseButtonReleased(int button);
     double GetMouseX() const;
