@@ -24,7 +24,15 @@ void RectangleObject::Draw() const
     glUseProgram(GetShaderProgram());
 
     glUniform4f(glGetUniformLocation(GetShaderProgram(), "color"), GetR(), GetG(), GetB(), 1.0f);
-
+    if (_filled)
+    {
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 5);
+    }
+    else
+    {
+        glLineWidth(_thickness);
+        glDrawArrays(GL_LINE_LOOP, 0, 5);
+    }
     glBindVertexArray(VAO);
     glDrawArrays(GL_LINE_LOOP, 0, 5);
 

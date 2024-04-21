@@ -20,7 +20,6 @@ void PointObject::Draw() const {
     glUseProgram(GetShaderProgram());
 
     glUniform4f(glGetUniformLocation(GetShaderProgram(), "color"), GetR(), GetG(), GetB(), 1.0f);
-
     glBindVertexArray(VAO);
     glDrawArrays(GL_POINTS, 0, 1);
 

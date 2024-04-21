@@ -8,7 +8,7 @@ class PointObject : public ColorObject
 {
 public:
 	PointObject(const Point& x, const Point& y) : _x(x), _y(y) {};
-	PointObject(const Point& x, const Point& y, const float r, const float g, const float b) : _x(x), _y(y), ColorObject(r, g, b) {};
+	PointObject(const Point& x, const Point& y, const float r, const float g, const float b, const float filled, const float thickness) : _x(x), _y(y), ColorObject(r, g, b, filled, thickness) {};
 	void Draw() const override;
 private:
 	Point _x;

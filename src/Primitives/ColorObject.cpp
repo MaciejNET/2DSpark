@@ -1,20 +1,44 @@
 #include "../../include/Primitives/ColorObject.h"
 
-ColorObject::ColorObject(float r, float g, float b) : _r(r), _g(g), _b(b)
+
+std::string ColorObject::ReadFile(const std::string& filePath)
+{
+    std::ifstream fileStream(filePath);
+    if (!fileStream.is_open())
+    {
+        return "Error file readiing";
+    }
+
+    std::stringstream buffer;
+    buffer << fileStream.rdbuf();
+    return buffer.str();
+}
+ColorObject::ColorObject(float r, float g, float b, bool filled, float thickness) : _r(r), _g(g), _b(b), _filled(filled), _thickness(thickness)
 {
     CompileShaders();
 }
 
-ColorObject::ColorObject() : _r(1.0f), _g(1.0f), _b(1.0f)
+ColorObject::ColorObject() : _r(1.0f), _g(1.0f), _b(1.0f), _filled(true), _thickness(1.0f)
 {
     CompileShaders();
 }
 
 void ColorObject::SetColor(float r, float g, float b)
 {
-	_r = r;
-	_g = g;
-	_b = b;
+    _r = r;
+    _g = g;
+    _b = b;
+    CompileShaders();
+}
+void ColorObject::SetFilled(bool filled)
+{
+    _filled = filled;
+    CompileShaders();
+}
+
+void ColorObject::SetThickness(float thickness)
+{
+    _thickness = thickness;
     CompileShaders();
 }
 
@@ -60,6 +84,8 @@ float ColorObject::GetB() const
 
 void ColorObject::CompileShaders()
 {
+    _vertexShaderSource = ReadFile("vertex_shader.glsl");
+    _fragmentShaderSource = ReadFile("fragment_shader.glsl");
     _vertexShader = glCreateShader(GL_VERTEX_SHADER);
     const char* vertexShaderSource = _vertexShaderSource.c_str();
     glShaderSource(_vertexShader, 1, &vertexShaderSource, NULL);
@@ -75,4 +101,5 @@ void ColorObject::CompileShaders()
     glAttachShader(_shaderProgram, _fragmentShader);
     glLinkProgram(_shaderProgram);
     glUseProgram(_shaderProgram);
+
 }
