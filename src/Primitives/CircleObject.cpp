@@ -39,6 +39,16 @@ void CircleObject::Draw() const {
 
     glUniform4f(glGetUniformLocation(GetShaderProgram(), "color"), GetR(), GetG(), GetB(), 1.0f);
 
+    if (_thickness > 1.0f) {
+        glLineWidth(_thickness);
+    }
+
+    if (_filled) {
+        glDrawArrays(GL_TRIANGLE_FAN, 0, num_segments);
+    }
+    else {
+        glDrawArrays(GL_LINE_LOOP, 0, num_segments);
+    }
     glBindVertexArray(VAO);
     glDrawArrays(GL_LINE_LOOP, 0, num_segments);
 

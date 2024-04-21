@@ -14,7 +14,7 @@ public:
     {
     };
 
-    LineObject(const Point& start, const Point& end, const float r, const float g, const float b) : ColorObject(r, g, b), _start(start), _end(end)
+    LineObject(const Point& start, const Point& end, const float r, const float g, const float b, const float filled, const float thickness) : ColorObject(r, g, b, filled, thickness), _start(start), _end(end)
     {
     };
     void Draw() const override;

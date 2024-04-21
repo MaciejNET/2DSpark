@@ -22,7 +22,7 @@ void LineObject::Draw() const
     glUseProgram(GetShaderProgram());
 
     glUniform4f(glGetUniformLocation(GetShaderProgram(), "color"), GetR(), GetG(), GetB(), 1.0f);
-
+    glLineWidth(_thickness);
     glBindVertexArray(VAO);
     glDrawArrays(GL_LINES, 0, 2);
 
