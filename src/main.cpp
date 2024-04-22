@@ -1,6 +1,7 @@
 #define GLFW_INCLUDE_NONE
 
 #include <cstdlib>
+#include <iostream>
 #include "../include/Engine.h"
 #include "../include/Primitives/LineObject.h"
 #include "../include/Primitives/CircleObject.h"
@@ -11,6 +12,7 @@
 
 int main(void)
 {
+
     Engine engine(800, 600, "Test", 60.0f);
     //LineObject line(Point(0.0f, 0.0f), Point(50.0f, 50.0f), 1.0f, 0.0f, 0.0f, false, 3.0f);
     //CircleObject circle(Point(120.0f, 120.5f), Point(10.0f, 20.0f), 1.0f, 0.0f, 0.0f, 0.0f, false, 10.0f);
@@ -29,10 +31,10 @@ int main(void)
 #endif
     
     //engine.GetRenderer()->AddObject(&myImage);
-    //engine.GetRenderer()->AddObject(&point);
-    //engine.GetRenderer()->AddObject(&rectangle);
-    //engine.GetRenderer()->AddObject(&circle);
-    //engine.GetRenderer()->AddObject(&line);
+    engine.GetRenderer()->AddObject(&point);
+    engine.GetRenderer()->AddObject(&rectangle);
+    engine.GetRenderer()->AddObject(&circle);
+    engine.GetRenderer()->AddObject(&line);
     engine.GetRenderer()->AddObject(&triangle);
   
     engine.Run();
