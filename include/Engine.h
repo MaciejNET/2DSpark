@@ -7,19 +7,20 @@
 #include "Managers/InputManager.h"
 #include "Renderer.h"
 #include <thread>
+#include "../include/Managers/WindowManager.h"
+#include <memory>
 
-class Engine {
+class Engine 
+{
 public:
     Engine(int width, int height, const char* title);
     Engine(int width, int height, const char* title, float targetFps);
     ~Engine();
     void Run();
-    void ClearScreen();
     void SetClearColor(float r, float g, float b, float alpha = 1.0f);
-    void ToggleFullscreen();
-    void ToggleWindowed();
     Renderer* GetRenderer() const;
     InputManager* GetInputManager() const;
+    WindowManager* GetWindowManager() const;
     void SetTargetFps(float targetFps);
     static void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 
@@ -27,17 +28,17 @@ private:
     void Init();
     void CleanUp();
 
-private:
     int _width, _height;
     const char* _title;
     GLFWwindow* _window;
-    InputManager* _inputManager;
-    Renderer* _renderer;
+    std::unique_ptr<InputManager> _inputManager;
+    std::unique_ptr<Renderer> _renderer;
     float _deltaTime = 0.0f;
     float _lastFrame = 0.0f;
     float _fps;
     float _clearColor[4];
     float _targetFps = 0.0f;
+    std::unique_ptr<WindowManager> _windowManager;
 };
 
 #endif //INC_2DSPARK_ENGINE_H

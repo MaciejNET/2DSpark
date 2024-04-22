@@ -15,8 +15,8 @@ endif()
 
 add_executable(2DSpark src/main.cpp src/glad.c
         src/Primitives/Point.cpp src/Renderer.cpp src/Managers/InputManager.cpp
-        src/Engine.cpp src/Primitives/ColorObject.cpp
-        src/Primitives/LineObject.cpp "include/Primitives/CircleObject.h" "src/Primitives/CircleObject.cpp" "include/Primitives/RectangleObject.h" "src/Primitives/RectangleObject.cpp" "include/Primitives/PointObject.h" "src/Primitives/PointObject.cpp" "dependencies/include/stb_image.h" "include/Primitives/BitmapObject.h" "src/Primitives/BitmapObject.cpp" src/Primitives/TriangleObject.cpp "include/Primitives/TriangleObject.h"
+        src/Engine.cpp src/Primitives/ColorObject.cpp src/Managers/WindowManager.cpp
+        src/Primitives/LineObject.cpp "include/Primitives/CircleObject.h" "src/Primitives/CircleObject.cpp" "include/Primitives/RectangleObject.h" "src/Primitives/RectangleObject.cpp" "include/Primitives/PointObject.h" "src/Primitives/PointObject.cpp" "dependencies/include/stb_image.h" "include/Primitives/BitmapObject.h" "src/Primitives/BitmapObject.cpp" src/Primitives/TriangleObject.cpp "include/Primitives/TriangleObject.h" "include/Managers/WindowManager.h"
         src/Events/EventBus.cpp)
 
 if(APPLE)
