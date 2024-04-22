@@ -7,7 +7,8 @@ enum class EventType
 {
     None = 0,
     KeyPressed,
-    MouseMoved
+    MouseMoved,
+    KeyHeld
 };
 
 class Event
