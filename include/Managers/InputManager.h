@@ -5,11 +5,13 @@
 #include "../Events/KeyHeldEvent.h"
 #include <memory>
 
-class InputManager {
+class InputManager
+{
 public:
     InputManager();
     void Update(GLFWwindow* window);
     bool KeyPressed(int key);
+    bool KeyHeld(int key);
     bool KeyReleased(int key);
     bool MouseButtonPressed(int button);
     bool MouseButtonReleased(int button);
@@ -23,8 +25,7 @@ private:
     bool _prevMouseButtons[8];
     double _mouseX, _mouseY;
     double _keyPressTime[512];
-
-    bool KeyHeld(int key, double holdTimeThreshold);
+    bool _isKeyHeld = false;
 };
 
 #endif // INC_2DSPARK_INPUTMANAGER_H

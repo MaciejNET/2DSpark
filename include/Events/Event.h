@@ -8,7 +8,9 @@ enum class EventType
     None = 0,
     KeyPressed,
     MouseMoved,
-    KeyHeld
+    KeyHeld,
+    KeyReleased,
+    MouseButtonPressed
 };
 
 class Event

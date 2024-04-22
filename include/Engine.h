@@ -22,8 +22,6 @@ public:
     InputManager* GetInputManager() const;
     WindowManager* GetWindowManager() const;
     void SetTargetFps(float targetFps);
-    static void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
-
 private:
     void Init();
     void CleanUp();

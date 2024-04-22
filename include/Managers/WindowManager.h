@@ -12,7 +12,8 @@ struct Resolution
     int height;
 };
 
-class WindowManager {
+class WindowManager
+{
 public:
     static void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
     void UpdateViewport(int width, int height);
