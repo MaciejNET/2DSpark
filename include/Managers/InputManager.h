@@ -1,6 +1,9 @@
 #ifndef INC_2DSPARK_INPUTMANAGER_H
 #define INC_2DSPARK_INPUTMANAGER_H
+
 #include "GLFW/glfw3.h"
+#include "../Events/KeyHeldEvent.h"
+#include <memory>
 
 class InputManager {
 public:
@@ -19,6 +22,9 @@ private:
     bool _mouseButtons[8];
     bool _prevMouseButtons[8];
     double _mouseX, _mouseY;
+    double _keyPressTime[512];
+
+    bool KeyHeld(int key, double holdTimeThreshold);
 };
 
 #endif // INC_2DSPARK_INPUTMANAGER_H
