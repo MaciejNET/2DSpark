@@ -39,3 +39,37 @@ void RectangleObject::Draw() const
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
 }
+
+void RectangleObject::Translate(float x, float y)
+{
+    _top.SetX(_top.GetXPixels() + x);
+    _top.SetY(_top.GetYPixels() + y);
+    _bottom.SetX(_bottom.GetXPixels() + x);
+    _bottom.SetY(_bottom.GetYPixels() + y);
+}
+
+void RectangleObject::Rotate(float angle)
+{
+    float x1 = _top.GetXPixels();
+    float y1 = _top.GetYPixels();
+    float x2 = _bottom.GetXPixels();
+    float y2 = _bottom.GetYPixels();
+
+    float x1Prime = x1 * cos(angle) - y1 * sin(angle);
+    float y1Prime = x1 * sin(angle) + y1 * cos(angle);
+    float x2Prime = x2 * cos(angle) - y2 * sin(angle);
+    float y2Prime = x2 * sin(angle) + y2 * cos(angle);
+
+    _top.SetX(x1Prime);
+    _top.SetY(y1Prime);
+    _bottom.SetX(x2Prime);
+    _bottom.SetY(y2Prime);
+}
+
+void RectangleObject::Scale(float x, float y)
+{
+    _top.SetX(_top.GetXPixels() * x);
+    _top.SetY(_top.GetYPixels() * y);
+    _bottom.SetX(_bottom.GetXPixels() * x);
+    _bottom.SetY(_bottom.GetYPixels() * y);
+}

@@ -1,7 +1,8 @@
 #include "../../include/Primitives/CircleObject.h"
 #include <cmath>
 
-void CircleObject::Draw() const {
+void CircleObject::Draw() const
+{
     const int num_segments = 100;
     const float theta = 2.0f * 3.1415926f / float(num_segments);
     float c = cosf(theta);
@@ -39,14 +40,17 @@ void CircleObject::Draw() const {
 
     glUniform4f(glGetUniformLocation(GetShaderProgram(), "color"), GetR(), GetG(), GetB(), 1.0f);
 
-    if (_thickness > 1.0f) {
+    if (_thickness > 1.0f)
+    {
         glLineWidth(_thickness);
     }
 
-    if (_filled) {
+    if (_filled)
+    {
         glDrawArrays(GL_TRIANGLE_FAN, 0, num_segments);
     }
-    else {
+    else
+    {
         glDrawArrays(GL_LINE_LOOP, 0, num_segments);
     }
     glBindVertexArray(VAO);
@@ -54,4 +58,27 @@ void CircleObject::Draw() const {
 
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
+}
+
+void CircleObject::Translate(float x, float y)
+{
+    _x.SetX(_x.GetXPixels() + x);
+    _y.SetY(_y.GetYPixels() + y);
+}
+
+void CircleObject::Rotate(float angle)
+{
+    float x = _x.GetXPixels();
+    float y = _y.GetYPixels();
+
+    float xPrime = x * cos(angle) - y * sin(angle);
+    float yPrime = x * sin(angle) + y * cos(angle);
+
+    _x.SetX(xPrime);
+    _y.SetY(yPrime);
+}
+
+void CircleObject::Scale(float x, float y)
+{
+    _radius *= x;
 }

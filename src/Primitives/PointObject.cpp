@@ -1,6 +1,7 @@
 #include "../../include/Primitives/PointObject.h"
 
-void PointObject::Draw() const {
+void PointObject::Draw() const
+{
     float vertex[] = 
     { 
         _x.GetX(), _y.GetY()
@@ -25,4 +26,20 @@ void PointObject::Draw() const {
 
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
+}
+
+void PointObject::Translate(float x, float y)
+{
+    _x.SetX(_x.GetX() + x);
+    _y.SetY(_y.GetY() + y);
+}
+
+void PointObject::Rotate(float angle)
+{
+    // Do nothing
+}
+
+void PointObject::Scale(float x, float y)
+{
+    // Do nothing
 }

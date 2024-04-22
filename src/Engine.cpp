@@ -49,34 +49,40 @@ void Engine::Run()
 
     while (!glfwWindowShouldClose(_window)) 
     {
-        auto currentTime = static_cast<float>(glfwGetTime());
+        try {
+            auto currentTime = static_cast<float>(glfwGetTime());
 
-        if (_targetFps > 0.0f) 
-        {
-            frameTimeTarget = 1.0f / _targetFps;
-            while (currentTime < nextFrameTime) {
-                currentTime = static_cast<float>(glfwGetTime());
+            if (_targetFps > 0.0f) {
+                frameTimeTarget = 1.0f / _targetFps;
+                while (currentTime < nextFrameTime) {
+                    currentTime = static_cast<float>(glfwGetTime());
+                }
             }
+
+            _deltaTime = currentTime - _lastFrame;
+            _lastFrame = currentTime;
+            nextFrameTime = currentTime + frameTimeTarget;
+
+            _fps = 1.0f / _deltaTime;
+            std::cout << "FPS: " << _fps << std::endl;
+
+            _inputManager->Update(_window);
+
+            if (_inputManager->KeyPressed(GLFW_KEY_ESCAPE))
+                glfwSetWindowShouldClose(_window, true);
+
+            _windowManager->ClearScreen();
+            _renderer->Render();
+            EventBus::GetInstance()->DispatchEvents();
+
+            glfwSwapBuffers(_window);
+            glfwPollEvents();
         }
-
-        _deltaTime = currentTime - _lastFrame;
-        _lastFrame = currentTime;
-        nextFrameTime = currentTime + frameTimeTarget;
-
-        _fps = 1.0f / _deltaTime;
-        std::cout << "FPS: " << _fps << std::endl;
-
-        _inputManager->Update(_window);
-
-        if (_inputManager->KeyPressed(GLFW_KEY_ESCAPE))
-            glfwSetWindowShouldClose(_window, true);
-
-        _windowManager->ClearScreen();
-        _renderer->Render();
-        EventBus::GetInstance()->DispatchEvents();
-
-        glfwSwapBuffers(_window);
-        glfwPollEvents();
+        catch (const std::exception& e)
+        {
+            std::cerr << e.what() << std::endl;
+            exit(EXIT_FAILURE);
+        }
     }
 }
 
@@ -110,7 +116,5 @@ void Engine::SetTargetFps(float targetFps)
 
 void Engine::CleanUp() 
 {
-    _renderer.reset();
-    _inputManager.reset();
     glfwTerminate();
 }
