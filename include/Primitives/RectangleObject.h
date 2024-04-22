@@ -10,6 +10,9 @@ public:
 	RectangleObject(const Point& top, const Point& bottom) : _top(top), _bottom(bottom) {};
 	RectangleObject(const Point& top, const Point& bottom, const float r, const float g, const float b, const float filled, const float thickness) : _top(top), _bottom(bottom), ColorObject(r, g, b, filled, thickness) {};
 	void Draw() const override;
+    void Translate(float x, float y) override;
+    void Rotate(float angle) override;
+    void Scale(float x, float y) override;
 private:
 	Point _top;
 	Point _bottom;
