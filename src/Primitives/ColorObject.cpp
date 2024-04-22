@@ -6,7 +6,7 @@ std::string ColorObject::ReadFile(const std::string& filePath)
     std::ifstream fileStream(filePath);
     if (!fileStream.is_open())
     {
-        return "Error file readiing";
+        return "Error file reading";
     }
 
     std::stringstream buffer;
@@ -84,16 +84,14 @@ float ColorObject::GetB() const
 
 void ColorObject::CompileShaders()
 {
-    _vertexShaderSource = ReadFile("vertex_shader.glsl");
-    _fragmentShaderSource = ReadFile("fragment_shader.glsl");
     _vertexShader = glCreateShader(GL_VERTEX_SHADER);
     const char* vertexShaderSource = _vertexShaderSource.c_str();
-    glShaderSource(_vertexShader, 1, &vertexShaderSource, NULL);
+    glShaderSource(_vertexShader, 1, &vertexShaderSource, nullptr);
     glCompileShader(_vertexShader);
 
     _fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     const char* fragmentShaderSource = _fragmentShaderSource.c_str();
-    glShaderSource(_fragmentShader, 1, &fragmentShaderSource, NULL);
+    glShaderSource(_fragmentShader, 1, &fragmentShaderSource, nullptr);
     glCompileShader(_fragmentShader);
 
     _shaderProgram = glCreateProgram();

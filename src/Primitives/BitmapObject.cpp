@@ -88,3 +88,18 @@ void BitmapObject::Draw() const
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
+
+void BitmapObject::Translate(float x, float y)
+{
+    // Do nothing
+}
+
+void BitmapObject::Rotate(float angle)
+{
+    // Do nothing
+}
+
+void BitmapObject::Scale(float x, float y)
+{
+    // Do nothing
+}

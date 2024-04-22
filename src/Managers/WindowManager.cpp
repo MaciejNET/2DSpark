@@ -19,12 +19,12 @@ void WindowManager::UpdateViewport(int width, int height)
 {
     float targetAspectRatio = 800.0f / 600.0f;
     int viewWidth = width;
-    int viewHeight = static_cast<int>(width / targetAspectRatio);
+    int viewHeight = static_cast<int>((float)width / targetAspectRatio);
 
     if (viewHeight > height) 
     {
         viewHeight = height;
-        viewWidth = static_cast<int>(height * targetAspectRatio);
+        viewWidth = static_cast<int>((float)height * targetAspectRatio);
     }
 
     int xOffset = (width - viewWidth) / 2;
@@ -45,6 +45,10 @@ void WindowManager::Init(int width, int height, const char* title)
         std::cerr << "Failed to initialize GLFW\n";
         exit(EXIT_FAILURE);
     }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     GLFWwindow* window = glfwCreateWindow(width, height, title, nullptr, nullptr);
     if (!window) 
