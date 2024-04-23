@@ -6,6 +6,7 @@
 class KeyReleasedEvent : public Event
 {
 public:
+    KeyReleasedEvent() = default;
     KeyReleasedEvent(int key) : _key(key) {};
     const EventType GetType() const override { return EventType::KeyReleased; };
     int GetKey() const { return _key; };
