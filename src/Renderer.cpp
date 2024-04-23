@@ -25,11 +25,14 @@ Renderer::~Renderer()
     glDeleteProgram(programID);
 }
 
-void Renderer::Render() const 
+void Renderer::Render(float deltaTime)
 {
     glUseProgram(programID);
     for (const auto& object : _objects)
+    {
+        object->Update(deltaTime);
         object->Draw();
+    }
     glUseProgram(0);
 }
 
@@ -84,12 +87,12 @@ GLuint Renderer::LoadShaders(const char* vertex_file_path, const char* fragment_
     return ProgramID;
 }
 
-void Renderer::AddObject(const GameObject* object) 
+void Renderer::AddObject(GameObject* object)
 {
     _objects.push_back(object);
 }
 
-void Renderer::RemoveObject(const GameObject* object) 
+void Renderer::RemoveObject(GameObject* object)
 {
     _objects.erase(std::remove(_objects.begin(), _objects.end(), object), _objects.end());
 }
