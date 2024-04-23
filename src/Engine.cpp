@@ -72,7 +72,7 @@ void Engine::Run()
                 glfwSetWindowShouldClose(_window, true);
 
             _windowManager->ClearScreen();
-            _renderer->Render();
+            _renderer->Render(_deltaTime);
             EventBus::GetInstance()->DispatchEvents();
 
             glfwSwapBuffers(_window);

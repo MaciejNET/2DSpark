@@ -11,14 +11,14 @@ class Renderer
 public:
     Renderer();
     ~Renderer();
-    void AddObject(const GameObject* object);
-    void RemoveObject(const GameObject* object);
-    void Render() const;
+    void AddObject(GameObject* object);
+    void RemoveObject(GameObject* object);
+    void Render(float deltaTime);
     void ClearObjects();
     GLuint LoadShaders(const char* vertex_file_path, const char* fragment_file_path);
 
 private:
-    std::vector<const GameObject*> _objects;
+    std::vector<GameObject*> _objects;
     GLuint programID;
 };
 

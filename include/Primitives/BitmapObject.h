@@ -10,6 +10,7 @@ public:
     ~BitmapObject();
 
     void Draw() const override;
+    void Update(float deltaTime) override {};
     void Translate(float x, float y) override;
     void Rotate(float angle) override;
     void Scale(float x, float y) override;

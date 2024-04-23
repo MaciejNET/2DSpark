@@ -13,6 +13,7 @@ public:
     LineObject(const Point& start, const Point& end) : _start(start), _end(end){};
     LineObject(const Point& start, const Point& end, const float r, const float g, const float b, const float filled, const float thickness) : ColorObject(r, g, b, filled, thickness), _start(start), _end(end){};
     void Draw() const override;
+    void Update(float deltaTime) override {};
     void Translate(float x, float y) override;
     void Rotate(float angle) override;
     void Scale(float x, float y) override;
