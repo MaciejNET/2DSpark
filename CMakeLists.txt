@@ -18,7 +18,8 @@ add_executable(2DSpark src/main.cpp src/glad.c
         src/Engine.cpp src/Primitives/ColorObject.cpp src/Managers/WindowManager.cpp
         src/Primitives/LineObject.cpp "include/Primitives/CircleObject.h" "src/Primitives/CircleObject.cpp" "include/Primitives/RectangleObject.h" "src/Primitives/RectangleObject.cpp" "include/Primitives/PointObject.h" "src/Primitives/PointObject.cpp" "dependencies/include/stb_image.h" "include/Primitives/BitmapObject.h" "src/Primitives/BitmapObject.cpp" src/Primitives/TriangleObject.cpp "include/Primitives/TriangleObject.h"
         src/Events/EventBus.cpp "include/Events/KeyHeldEvent.h"
-        src/Primitives/AnimatedBitmapObject.cpp)
+        src/Primitives/AnimatedBitmapObject.cpp
+        src/DemoGame/SnakeHead.cpp)
 
 if(APPLE)
     target_link_libraries(2DSpark ${GLFW_LIBRARY} ${COREFOUNDATION_LIBRARY} ${COREGRAPHICS_LIBRARY} ${IOKIT_LIBRARY} ${COCOA_LIBRARY})
