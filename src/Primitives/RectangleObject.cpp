@@ -4,11 +4,11 @@ void RectangleObject::Draw() const
 {
 	float vertices[] =
 	{
-		_top.GetX(), _top.GetY(), //gorny lewy naroznik
-		_bottom.GetX(), _top.GetY(), //gorny prawy
-		_bottom.GetX(), _bottom.GetY(), //dolny prawy
-		_top.GetX(), _bottom.GetY(), //dolny lewy
-        _top.GetX(), _top.GetY() //zamkniecie
+		_top.GetX(), _top.GetY(),
+		_bottom.GetX(), _top.GetY(),
+		_bottom.GetX(), _bottom.GetY(),
+		_top.GetX(), _bottom.GetY(),
+        _top.GetX(), _top.GetY()
 	};
     GLuint VAO, VBO;
     glGenVertexArrays(1, &VAO);
