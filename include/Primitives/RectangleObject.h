@@ -4,6 +4,9 @@
 #include "ColorObject.h"
 #include "Point.h"
 
+/**
+ * Klasa reprezentująca prostokąt
+ */
 class RectangleObject : public ColorObject
 {
 public:

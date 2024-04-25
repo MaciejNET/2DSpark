@@ -4,6 +4,9 @@
 #include "ColorObject.h"
 #include "Point.h"
 
+/**
+ * Klasa reprezentująca trójkąt
+ */
 class TriangleObject : public ColorObject
 {
 public:
