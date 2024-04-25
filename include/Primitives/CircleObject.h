@@ -4,6 +4,9 @@
 #include "ColorObject.h"
 #include "Point.h"
 
+/**
+ * Klasa reprezentująca okrąg
+ */
 class CircleObject : public ColorObject
 {
 public:

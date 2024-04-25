@@ -4,6 +4,9 @@
 #include "Point.h"
 #include "ColorObject.h"
 
+/**
+ * Klasa reprezentująca punkt
+ */
 class PointObject : public ColorObject
 {
 public:

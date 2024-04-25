@@ -8,6 +8,9 @@
 #include "glad/glad.h"
 #include <iostream>
 
+/**
+ * Klasa reprezentująca animowany obiekt
+ */
 class AnimatedBitmapObject : public GameObject
 {
 public:

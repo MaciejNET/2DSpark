@@ -3,6 +3,9 @@
 #include "GameObject.h"
 #include "stb_image.h"
 
+/**
+ * Klasa reprezentująca obiekt bitmapowy
+ */
 class BitmapObject : public GameObject 
 {
 public:

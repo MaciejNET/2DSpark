@@ -7,19 +7,73 @@
 #include <fstream>
 #include <sstream>
 
+/**
+ * Klasa bazowa dla obiektów które mają kolor
+ */
 class ColorObject : public GameObject
 {
 public:
+    /**
+     * Konstruktor klasy
+     * @param r - czerwony kolor
+     * @param g - zielony kolor
+     * @param b - niebieski kolor
+     * @param filled - czy obiekt ma być wypełniony
+     * @param thickness - grubość linii
+     */
     ColorObject(float r, float g, float b, bool filled, float thickness);
     ColorObject();
     virtual ~ColorObject() = default;
+
+    /**
+     * Ustawia kolor obiektu
+     * @param r - czerwony kolor
+     * @param g - zielony kolor
+     * @param b - niebieski kolor
+     */
     void SetColor(float r, float g, float b);
+
+    /**
+     * Ustawia czy obiekt ma być wypełniony
+     * @param filled - czy obiekt ma być wypełniony
+     */
     void SetFilled(bool filled);
+
+    /**
+     * Ustawia grubość linii
+     * @param thickness - grubość linii
+     */
     void SetThickness(float thickness);
+
+    /**
+     * Metoda służąca do rysowania obiektu
+     */
     virtual void Draw() const = 0;
+
+    /**
+     * Metoda służąca do aktualizowania obiektu podczas renderowania
+     * @param deltaTime
+     */
     virtual void Update(float deltaTime) = 0;
+
+    /**
+     * Metoda służąca do przesuwania obiektu
+     * @param x
+     * @param y
+     */
     virtual void Translate(float x, float y) = 0;
+
+    /**
+     * Metoda służąca do obracania obiektu
+     * @param angle
+     */
     virtual void Rotate(float angle) = 0;
+
+    /**
+     * Metoda służąca do skalowania obiektu
+     * @param x
+     * @param y
+     */
     virtual void Scale(float x, float y) = 0;
 
     GLuint GetShaderProgram() const;
@@ -27,8 +81,23 @@ public:
     GLuint GetFragmentShader() const;
     std::string GetVertexShaderSource() const;
     std::string GetFragmentShaderSource() const;
+
+    /**
+     * Metoda zwracająca czerwony kolor
+     * @return czerwony kolor
+     */
     float GetR() const;
+
+    /**
+     * Metoda zwracająca zielony kolor
+     * @return zielony kolor
+     */
     float GetG() const;
+
+    /**
+     * Metoda zwracająca niebieski kolor
+     * @return niebieski kolor
+     */
     float GetB() const;
 private:
     float _r;

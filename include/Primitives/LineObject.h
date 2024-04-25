@@ -7,6 +7,9 @@
 #include "../Events/KeyPressedEvent.h"
 #include "../Events/MouseMovedEvent.h"
 
+/**
+ * Klasa reprezentująca linię
+ */
 class LineObject : public ColorObject
 {
 public:

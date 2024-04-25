@@ -13,11 +13,26 @@ enum class EventType
     MouseButtonPressed
 };
 
+/**
+ * Klasa reprezentująca zdarzenie
+ */
 class Event
 {
 public:
+    /**
+     * Konstruktor
+     */
     Event() = default;
+
+    /**
+     * Destruktor
+     */
     virtual ~Event() = default;
+
+    /**
+     * Metoda zwracająca typ zdarzenia
+     * @return typ zdarzenia
+     */
     virtual const EventType GetType() const = 0;
 };
 
