@@ -8,6 +8,7 @@
 #include "Renderer.h"
 #include <thread>
 #include "../include/Managers/WindowManager.h"
+#include "../include/DemoGame/CollisionDetector.h"
 #include <memory>
 
 /**
@@ -71,6 +72,12 @@ public:
      * @param targetFps
      */
     void SetTargetFps(float targetFps);
+
+    /**
+    * Metoda dodająca detektor kolizji
+    * @param collisionDetector
+    */
+    void AddCollisionDetector(CollisionDetector* collisionDetector);
 private:
     /**
      * Metoda służąca do inicjalizacji silnika
@@ -93,6 +100,7 @@ private:
     float _clearColor[4];
     float _targetFps = 0.0f;
     std::unique_ptr<WindowManager> _windowManager;
+    std::unique_ptr<CollisionDetector> _collisionDetector;
 };
 
 #endif //INC_2DSPARK_ENGINE_H

@@ -75,6 +75,9 @@ void Engine::Run()
             _renderer->Render(_deltaTime);
             EventBus::GetInstance()->DispatchEvents();
 
+            if (_collisionDetector)
+                _collisionDetector->CheckCollision();
+
             glfwSwapBuffers(_window);
             glfwPollEvents();
         }
@@ -112,6 +115,11 @@ WindowManager* Engine::GetWindowManager() const
 void Engine::SetTargetFps(float targetFps) 
 {
     _targetFps = targetFps;
+}
+
+void Engine::AddCollisionDetector(CollisionDetector* collisionDetector)
+{
+    _collisionDetector = std::unique_ptr<CollisionDetector>(collisionDetector);
 }
 
 void Engine::CleanUp() 

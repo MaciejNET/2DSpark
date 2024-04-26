@@ -1,19 +1,33 @@
 
 #include "../../include/DemoGame/CollisionDetector.h"
 #include "../../include/DemoGame/SnakeHead.h"
+#include "../../include/DemoGame/CollisionDetectedEvent.h"
+#include "../../include/Events/EventBus.h"
 #include <iostream>
 
-CollisionDetector::CollisionDetector() {}
+CollisionDetector::CollisionDetector(SnakeHead* snakeHead, FoodItem* foodItem)
+    : _snakeHead(snakeHead), _foodItem(foodItem)
+{
+}
 
-CollisionDetector::~CollisionDetector() {}
+CollisionDetector::~CollisionDetector()
+{
+    delete _snakeHead;
+    delete _foodItem;
+}
 
-bool CollisionDetector::CheckCollision(const SnakeHead& snakeHead, const FoodItem& foodItem) const {
-    Point snakeHeadPos = snakeHead.GetTop();
-    Point foodItemPos = foodItem.GetTop();
+void CollisionDetector::CheckCollision() const
+{
+    Point snakeHeadPos = _snakeHead->GetTop();
+    Point foodItemPos = _foodItem->GetTop();
 
-    float distance = sqrt(pow(snakeHeadPos.GetX() - foodItemPos.GetX(), 2) + pow(snakeHeadPos.GetY() - foodItemPos.GetY(), 2));
+    float distance = sqrt(pow(snakeHeadPos.GetXPixels() - foodItemPos.GetXPixels(), 2) + pow(snakeHeadPos.GetYPixels() - foodItemPos.GetYPixels(), 2));
 
     float collisionThreshold = 10.0f;
 
-    return distance < collisionThreshold;
+    if (distance < collisionThreshold)
+    {
+        std::shared_ptr<Event> event = std::make_shared<CollisionDetectedEvent>();
+        EventBus::GetInstance()->Publish(event);
+    }
 }
