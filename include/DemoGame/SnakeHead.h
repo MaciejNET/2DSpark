@@ -31,11 +31,14 @@ public:
     };
 
     void Update(float deltaTime) override;
+    void HandleFoodCollision();
+
 private:
     void Move();
 
 private:
      int _key = -1;
+
 };
 
 #endif //INC_2DSPARK_SNAKEHEAD_H
