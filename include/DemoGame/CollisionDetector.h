@@ -7,10 +7,14 @@
 
 class CollisionDetector {
 public:
-    CollisionDetector();
+    CollisionDetector(SnakeHead *snakeHead, FoodItem *foodItem);
     ~CollisionDetector();
 
-    bool CheckCollision(const SnakeHead& snakeHead, const FoodItem& foodItem) const;
+    void CheckCollision() const;
+
+private:
+    SnakeHead *_snakeHead;
+    FoodItem *_foodItem;
 };
 
 #endif // COLLISION_DETECTOR_H

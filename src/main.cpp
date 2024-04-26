@@ -5,6 +5,7 @@
 #include "../include/Engine.h"
 #include "../include/DemoGame/SnakeHead.h"
 #include "../include/DemoGame/FoodItem.h"
+#include "../include/DemoGame/CollisionDetector.h"
 
 
 int main(void)
@@ -15,7 +16,8 @@ int main(void)
     FoodItem foodItem(800, 600);
     engine.GetRenderer()->AddObject(&snakeHead);
     engine.GetRenderer()->AddObject(&foodItem);
-    //CollisionDetector collisionDetector;
+    CollisionDetector collisionDetector(&snakeHead, &foodItem);
+    engine.AddCollisionDetector(&collisionDetector);
     engine.Run();
     glfwTerminate();
     exit(EXIT_SUCCESS);
