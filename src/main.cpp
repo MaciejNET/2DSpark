@@ -6,6 +6,7 @@
 #include "../include/DemoGame/SnakeHead.h"
 #include "../include/DemoGame/FoodItem.h"
 
+
 int main(void)
 {
     srand(time(NULL));
@@ -14,6 +15,7 @@ int main(void)
     FoodItem foodItem(800, 600);
     engine.GetRenderer()->AddObject(&snakeHead);
     engine.GetRenderer()->AddObject(&foodItem);
+    //CollisionDetector collisionDetector;
     engine.Run();
     glfwTerminate();
     exit(EXIT_SUCCESS);
